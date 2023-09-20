@@ -30,10 +30,11 @@ public class UserService {
         return UserMapper.INSTANCE.toDto(userRepository.findById(id).orElse(null));
     }
 
-    public UserDtoResponse update(Long id, User user) {
+    public UserDtoResponse update(Long id, UserDTO userDTO) {
         User user1 = userRepository.findById(id).orElse(null);
         if (user1 != null) {
-            user.setId(id);
+            User user = UserMapper.INSTANCE.fromDto(userDTO);
+            user.setId(user1.getId());
             return UserMapper.INSTANCE.toDto(userRepository.save(user));
         }
         return null;

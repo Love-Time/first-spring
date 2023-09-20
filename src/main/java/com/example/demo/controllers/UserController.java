@@ -36,8 +36,8 @@ public class UserController {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
     @PatchMapping("/{id}/")
-    public  ResponseEntity<UserDtoResponse> update(@PathVariable Long id, @RequestBody User user){
-        return new ResponseEntity<>(userService.update(id, user), HttpStatus.OK);
+    public  ResponseEntity<UserDtoResponse> update(@PathVariable Long id, @RequestBody UserDTO userDTO){
+        return new ResponseEntity<>(userService.update(id, userDTO), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}/")
