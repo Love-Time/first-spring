@@ -30,8 +30,14 @@ public class UserService {
         return UserMapper.INSTANCE.toDto(userRepository.findById(id).orElse(null));
     }
 
-    public UserDtoResponse update(User user){
-        return UserMapper.INSTANCE.toDto(userRepository.save(user));
+    public UserDtoResponse update(Long id, User user) {
+        User user1 = userRepository.findById(id).orElse(null);
+        if (user1 != null) {
+            user.setId(id);
+            return UserMapper.INSTANCE.toDto(userRepository.save(user));
+        }
+        return null;
+
     }
 
     public void delete(Long id){

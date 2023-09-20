@@ -1,5 +1,6 @@
 package com.example.demo.controllers;
 
+import com.example.demo.dto.AccountDTO;
 import com.example.demo.dto.AccountDtoResponse;
 import com.example.demo.entity.Account;
 
@@ -20,6 +21,11 @@ public class AccountController {
     @GetMapping("/")
     public ResponseEntity<List<AccountDtoResponse>> getAll(){
         return new ResponseEntity<>(accountService.findAll(), HttpStatus.OK);
+    }
+
+    @PostMapping("/")
+    public ResponseEntity<AccountDtoResponse> create(AccountDTO dto){
+        return new ResponseEntity<>(accountService.create(dto), HttpStatus.OK);
     }
 
     @GetMapping("/{id}/user/")
