@@ -1,11 +1,11 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.CardDTO;
+import com.example.demo.dto.CardDto;
 import com.example.demo.dto.CardDtoResponse;
 import com.example.demo.entity.Account;
 import com.example.demo.entity.Card;
 import com.example.demo.entity.User;
-import com.example.demo.mappers.CardMapper;
+import com.example.demo.mapper.CardMapper;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.CardRepository;
 import com.example.demo.repository.UserRepository;
@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CardService {
@@ -26,7 +25,7 @@ public class CardService {
     @Autowired
     private AccountRepository accountRepository;
 
-    public CardDtoResponse create(CardDTO dto){
+    public CardDtoResponse create(CardDto dto){
 
         User user = userRepository.findById(dto.getUser_id()).orElse(null);
         Account account = accountRepository.findById(dto.getAccount_id()).orElse(null);

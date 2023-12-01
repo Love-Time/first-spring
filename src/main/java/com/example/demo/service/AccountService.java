@@ -1,10 +1,10 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.AccountDTO;
+import com.example.demo.dto.AccountDto;
 import com.example.demo.dto.AccountDtoResponse;
 import com.example.demo.entity.Account;
 import com.example.demo.entity.User;
-import com.example.demo.mappers.AccountMapper;
+import com.example.demo.mapper.AccountMapper;
 import com.example.demo.repository.AccountRepository;
 import com.example.demo.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class AccountService {
     @Autowired
     private UserRepository userRepository;
 
-    public AccountDtoResponse create(AccountDTO dto) {
+    public AccountDtoResponse create(AccountDto dto) {
         User user = userRepository.findById(dto.getUser_id()).orElse(null);
         if (user != null) {
             Account account = Account.builder()

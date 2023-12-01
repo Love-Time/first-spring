@@ -1,6 +1,5 @@
-package com.example.demo.mappers;
+package com.example.demo.mapper;
 
-import com.example.demo.dto.AccountDtoResponse;
 import com.example.demo.dto.CardDtoResponse;
 import com.example.demo.entity.Card;
 import org.mapstruct.BeanMapping;

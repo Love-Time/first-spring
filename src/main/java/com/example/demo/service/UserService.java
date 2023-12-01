@@ -1,9 +1,9 @@
 package com.example.demo.service;
 
-import com.example.demo.dto.UserDTO;
+import com.example.demo.dto.UserDto;
 import com.example.demo.dto.UserDtoResponse;
 import com.example.demo.entity.User;
-import com.example.demo.mappers.UserMapper;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public UserDtoResponse create(UserDTO dto){
+    public UserDtoResponse create(UserDto dto){
         User user = UserMapper.INSTANCE.fromDto(dto);
         return UserMapper.INSTANCE.toDto(userRepository.save(user));
     }
@@ -30,7 +30,7 @@ public class UserService {
         return UserMapper.INSTANCE.toDto(userRepository.findById(id).orElse(null));
     }
 
-    public UserDtoResponse update(Long id, UserDTO userDTO) {
+    public UserDtoResponse update(Long id, UserDto userDTO) {
         User user1 = userRepository.findById(id).orElse(null);
         if (user1 != null) {
             User user = UserMapper.INSTANCE.fromDto(userDTO);

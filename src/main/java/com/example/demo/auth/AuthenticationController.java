@@ -29,7 +29,7 @@ public class AuthenticationController {
     ) {
         if (result.hasErrors()) {
             AuthenticationResponse response = new AuthenticationResponse();
-            response.setErrors(BindingErrorsService.getErrors(result));
+            response.setErrors(BindingErrorsService.getErrors(result.getFieldErrors()));
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
         return ResponseEntity.ok(service.register(request));
@@ -41,7 +41,7 @@ public class AuthenticationController {
     ) {
         if (result.hasErrors()) {
             AuthenticationResponse response = new AuthenticationResponse();
-            response.setErrors(BindingErrorsService.getErrors(result));
+            response.setErrors(BindingErrorsService.getErrors(result.getFieldErrors()));
             return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
         }
 

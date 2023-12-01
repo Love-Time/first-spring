@@ -1,7 +1,7 @@
-package com.example.demo.mappers;
+package com.example.demo.mapper;
 
 
-import com.example.demo.dto.AccountDTO;
+import com.example.demo.dto.AccountDto;
 import com.example.demo.dto.AccountDtoResponse;
 import com.example.demo.entity.Account;
 import org.mapstruct.BeanMapping;
@@ -21,5 +21,5 @@ public interface AccountMapper {
     @BeanMapping(resultType = AccountDtoResponse.class)
     List<AccountDtoResponse> toDto(List<Account> account);
 
-    Account fromDto(AccountDTO accountDTO);
+    Account fromDto(AccountDto accountDTO);
 }
